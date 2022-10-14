@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    130.54deg,
+    #27a5f9 26.95%,
+    rgba(39, 165, 249, 0) 123.41%
+  );
+  display: inline-block;
+  padding: 15% 10% 20% 10%;
+}
+
+.content-1 {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  height: 300px;
+}
+
+.content2 {
+  display: flex;
+  flex-direction: wrap;
+  height: 32px;
+  line-height: auto;
+  background: aquamarine;
+  width: 150px;
+  background: rgba(238, 238, 238, 0.5);
+  border-radius: 10px;
+  color: white;
+  margin-left: 20px;
+}
+
+.nm-jkt {
+  display: inline-block;
+  font-size: 90px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
+
+.icon-jkt {
+  align-self: center;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: -10px;
+}
+
+.suhu-jkt {
+  margin-top: 2%;
+  font-size: 20px;
+  margin-left: 15px;
+  width: auto;
+}
+
+.keepmove {
+  font-size: 30px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: white;
+}
+
+.content-2 {
+  position: absolute;
+  display: inline-block;
+  width: 45%;
+  text-align: center;
+  height: 300px;
+}
+
+.bekasi {
+  width: 200px;
+  display: inline-block;
+  position: relative;
+  justify-content: center;
+  height: 250px;
+  background-color: whitesmoke;
+  margin-top: -50%;
+  border-radius: 10%;
+  font-family: "Roboto", sans-serif;
+  padding: 20px;
+}
+
+.bogor {
+  display: inline-block;
+  position: relative;
+  justify-content: center;
+  width: 200px;
+  height: 250px;
+  background-color: whitesmoke;
+  border-radius: 10%;
+  font-family: "Roboto", sans-serif;
+  padding: 20px;
+}

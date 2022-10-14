@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// let arr = [8,1,3,6,7];
+
+		// console.log([arr[1], arr[2], arr[3], arr[4], arr[0]], "ARRAY DARI YG TERKECIL")
+		// console.log([arr[0], arr[4], arr[3], arr[2], arr[1]], "ARRAY DARI YG TERBESAR")
+
+		let temp = []
+		let flag = true
+		function test(){
+			let x = parseInt(prompt("Masukkan angka"));
+			console.log(x, temp)
+			!x ? flag = false : (temp.push(x), test())
+		}
+		test()
+	</script>
+</body>
+</html>

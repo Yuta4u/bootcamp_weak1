@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>RESTAPI WEATHER</title>
+  </head>
+  <body>
+    <html>
+      <div class="container">
+        <div class="content-1">
+          <div class="content">
+            <!-- JAKARTA -->
+            <div class="nm-jkt"></div>
+            <div class="content2">
+              <img class="icon-jkt" src="" />
+              <div class="suhu-jkt"></div>
+            </div>
+            <hr style="width: 70%; margin-top: 2%; margin-top: 8%" />
+            <div class="keepmove">Keep Smile</div>
+          </div>
+        </div>
+
+        <div class="content-2">
+          <hr style="margin-bottom: 3%; margin-left: 280px; width: 38%" />
+          <!-- BEKASI -->
+          <div class="bekasi">
+            <div class="nm-bks"></div>
+            <img class="icon-bks" style="width: 150px" rc="" />
+            <div class="suhu-bks"></div>
+          </div>
+          <!-- BOGOR -->
+          <div class="bogor">
+            <div class="nm-bgr"></div>
+            <img class="icon-bgr" style="width: 150px" src="" />
+            <div class="suhu-bgr"></div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const url = (lon, lat) => {
+          return fetch(
+            `https://api.weatherbit.io/v2.0/current?lon=${lon}&key=8961a4b3befc4fff9ba6f5bb540ccd0c&lat=${lat}&lang=ID`
+          ).then((res) => res.json())
+        } // function convert data
+
+        let jkt = url("106.816666", "-6.200000")
+        let bks = url("106.975573", "-6.23827")
+        let bgr = url("106.79081999999994", "-6.594293")
+
+        function weather() {
+          Promise.all([jkt, bks, bgr]).then((kota) => {
+            const showCard = (kota) => {
+              let nmKota = ["jkt", "bks", "bgr"]
+              for (let [i, x] of kota.entries()) {
+                document.querySelector(`.nm-${nmKota[i]}`).innerHTML =
+                  x.data[0].city_name // nama kota 0 jkt, 1 bks, 2
+                document.querySelector(
+                  `.suhu-${nmKota[i]}`
+                ).innerHTML = `${x.data[0].weather.description}, ${x.data[0].app_temp}°C` // description suhu dan suhu
+                document.querySelector(
+                  `.icon-${nmKota[i]}`
+                ).src = `https://www.weatherbit.io/static/img/icons/${x.data[0].weather.icon}.png` // icon
+              }
+            }
+            showCard(kota) // show card
+          })
+        } // function insert data
+
+        async function cetak() {
+          try {
+            let temp = await weather()
+          } catch (err) {
+            console.error(err)
+          }
+        } // function cetak
+
+        cetak()
+      </script>
+    </html>
+  </body>
+</html>

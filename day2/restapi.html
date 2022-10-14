@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let api = fetch(
+        "https://api.weatherbit.io/v2.0/current?lon=106.816666 &key=8961a4b3befc4fff9ba6f5bb540ccd0c&lat=-6.200000"
+      )
+
+      api
+        .then((res) => res.json()) // untuk menconvert promise menjadi object
+        .then((res) => console.log(res.data[0].city_name)) // untuk menampilkan hasil convert an
+
+      //   let flag = null
+      //   let temp = new Promise((resolve, reject) => {
+      //     if (flag) {
+      //       resolve("test")
+      //     } else {
+      //       reject(alert("ada kesalahan"))
+      //     }
+      //   })
+
+      //   temp
+      //     .then((res) => console.log(res)) // untuk mendapatkan data
+      //     .catch((err) => console.error(err)) // untuk mengecek error
+      //     .finally(console.log("ok")) // finnaly akan pasti dijalankan di akhir
+    </script>
+  </body>
+</html>
